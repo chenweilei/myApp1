@@ -50,12 +50,14 @@
 
 <body>
     <div id="div1"></div>
+    <img id="img" src="" alt="">
     <input type="button" id="btn1" value="btn">
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript">
         document.addEventListener('deviceready',function(){
             alert('ready');
             var oDiv=document.getElementById('div1');
+            var oImg=document.querySelector('#img');
             //电池信息
             window.addEventListener('batterycritical',function(){
                 oDiv.innerHTML+='电池电量低了'
@@ -90,6 +92,7 @@
             oBtn.onclick=function(){
                 navigator.camera.getPicture(function(str){
                     alert(str);
+                    oImg.src=str;
                 });
             };
         },false);    
